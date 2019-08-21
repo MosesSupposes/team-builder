@@ -4,7 +4,7 @@ import './App.css'
 import teamData from './data'
 
 import TeamMemberList from './components/TeamMembers/TeamMemberList'
-import Form from './components/Form'
+import NewTeamMemberForm from './components/Forms/NewTeamMemberForm'
 
 export default function App() {
   const [team, setTeam] = useState(teamData)
@@ -13,7 +13,7 @@ export default function App() {
     <div className="App">
       <h1>Team Builder</h1>
 
-      <Form />
+      <NewTeamMemberForm />
       <TeamMemberList teamMembers={team} />
     </div>
   )
