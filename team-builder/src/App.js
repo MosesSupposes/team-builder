@@ -6,6 +6,7 @@ import teamData from './data'
 
 import TeamMemberList from './components/TeamMembers/TeamMemberList'
 import NewTeamMemberForm from './components/Forms/NewTeamMemberForm'
+import Navigation from './components/Navigation'
 
 export default function App() {
   const [team, setTeam] = useState(teamData)
@@ -18,7 +19,13 @@ export default function App() {
     <div className="App">
       <h1>Team Builder</h1>
 
-      <Route exact path="/" render={props => <TeamMemberList {...props} teamMembers={team} />} />
+      <Navigation />
+
+      <Route 
+        exact 
+        path="/" 
+        render={props => <TeamMemberList {...props} teamMembers={team} />} 
+      />
       <Route 
         path="/team/add" 
         render={props => <NewTeamMemberForm {...props} addNewTeamMember={addNewTeamMember}/>} 
