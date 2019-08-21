@@ -13,14 +13,19 @@ export default function NewTeamMemberForm(props) {
     }
     
     const handleSubmit = event => {
+        // Prevent page from reloading
         event.preventDefault()
+        // Add new team member to TeamMemberList
         props.addNewTeamMember({
             ...newTeamMember,
             id: uuid()
-        })
+        })    
+        // Reset form
         setNewTeamMember({name: '', email: '', role:''})
+        // Navigate user back to home
+        props.history.push('/')
     }
-    
+
     return (
         <>
         <h2>Add a new Team Member</h2>
@@ -46,7 +51,7 @@ export default function NewTeamMemberForm(props) {
                 value={newTeamMember.role}
                 onChange={handleChange}
             />
-            
+
             <button role="submit">Submit</button>
         </form>
         </>
