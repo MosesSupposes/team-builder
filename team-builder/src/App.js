@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
 
 import './App.css'
 import teamData from './data'
@@ -17,8 +18,12 @@ export default function App() {
     <div className="App">
       <h1>Team Builder</h1>
 
-      <NewTeamMemberForm addNewTeamMember={addNewTeamMember}/>
-      <TeamMemberList teamMembers={team} />
+      <Route exact path="/" render={props => <TeamMemberList {...props} teamMembers={team} />} />
+      <Route 
+        path="/team/add" 
+        render={props => <NewTeamMemberForm {...props} addNewTeamMember={addNewTeamMember}/>} 
+      />
+      
     </div>
   )
 }
