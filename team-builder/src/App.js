@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import './App.css'
 import teamData from './data'
 
-import TeamMemberList from './components/TeamMemberList'
+import TeamMemberList from './components/TeamMembers/TeamMemberList'
 
 export default function App() {
   const [team, setTeam] = useState(teamData)
