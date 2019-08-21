@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import uuid from 'uuid'
 
 export default function NewTeamMemberForm(props) {
     const [newTeamMember, setNewTeamMember] = useState({
@@ -13,6 +14,11 @@ export default function NewTeamMemberForm(props) {
     
     const handleSubmit = event => {
         event.preventDefault()
+        props.addNewTeamMember({
+            ...newTeamMember,
+            id: uuid()
+        })
+        setNewTeamMember({name: '', email: '', role:''})
     }
     
     return (
@@ -40,6 +46,8 @@ export default function NewTeamMemberForm(props) {
                 value={newTeamMember.role}
                 onChange={handleChange}
             />
+            
+            <button role="submit">Submit</button>
         </form>
         </>
     )

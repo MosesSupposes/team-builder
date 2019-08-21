@@ -8,12 +8,16 @@ import NewTeamMemberForm from './components/Forms/NewTeamMemberForm'
 
 export default function App() {
   const [team, setTeam] = useState(teamData)
+
+  const addNewTeamMember = (newMember) => {
+    setTeam( team.concat(newMember) )
+  }
   
   return (
     <div className="App">
       <h1>Team Builder</h1>
 
-      <NewTeamMemberForm />
+      <NewTeamMemberForm addNewTeamMember={addNewTeamMember}/>
       <TeamMemberList teamMembers={team} />
     </div>
   )
